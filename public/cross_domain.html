@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>CORS Sample</title>
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script>
     function test(url) {
-        $.ajax(url, {
-            type: "GET",
-            contentType: "application/json; charset=utf-8",
-            success: function(data, status, xhr) {
-                console.log(data);
-            },
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true
-        });
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.open("GET", url, true);
+      xhr.onload = function() {
+        var text = xhr.responseText;
+        document.write(text);
+      };
+
+      xhr.onerror = function() {
+        alert('Woops, there was an error making the request.');
+      };
+
+      xhr.send();
+
     }
 
   </script>

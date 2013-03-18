@@ -44,7 +44,7 @@ class LinksController < ApplicationController
     end
 
     def add_cors_headers
-      headers['Access-Control-Allow-Origin'] = 'http://localhost'
+      headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
       headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
       headers['Access-Control-Allow-Credentials'] = 'true'
       headers['Access-Control-Max-Age'] = '1728000'
