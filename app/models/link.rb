@@ -1,7 +1,7 @@
 class Link < ActiveRecord::Base
   attr_accessible :title, :url, :content_type, :host
 
-  has_many :stories
+  has_many :stories, :dependent => :destroy
 
   scope :unprocessed, where('title IS NULL')
 
@@ -15,7 +15,7 @@ class Link < ActiveRecord::Base
           :host => page_crawler.host
         })
       rescue
-      #   link.destroy
+        link.destroy
       end
     end
   end

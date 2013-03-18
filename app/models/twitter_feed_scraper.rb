@@ -14,7 +14,6 @@ class TwitterFeedScraper
         user.links << link unless user.stories.where(:link_id => link.id).exists?
       end
     end
-    Link.process
   end
 
 end

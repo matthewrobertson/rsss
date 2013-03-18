@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>We're sorry, but something went wrong (500)</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+    function test(url) {
+        $.ajax(url, {
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            success: function(data, status, xhr) {
+                console.log(data);
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+        });
+    }
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
+
+
