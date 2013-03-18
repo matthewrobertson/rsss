@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'twitter'
 gem 'wombat'
 gem 'omniauth-twitter'
+gem 'thin'
 
 group :development, :test do
   gem 'debugger'
