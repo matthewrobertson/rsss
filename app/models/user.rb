@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def recent_tweets
-    has_twitter? ? twitter_client.home_timeline(:count => 200) : []
+    has_twitter? ? twitter_client.home_timeline(:count => 50) : []
   end
 
   private

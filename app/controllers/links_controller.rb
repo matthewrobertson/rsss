@@ -7,6 +7,8 @@ class LinksController < ApplicationController
 
   # GET /links(.:format)
   def index
+    TwitterFeedScraper.new(current_user).call
+    Link.process
     @stories = current_user.stories.includes(:link)
     respond_with @stories
   end
