@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Integration</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="container">
+      <% if current_user %>
+        <div id="user_nav">
+          Signed in as <%= current_user.name %>!
+          <%= link_to "Sign out", signout_path %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

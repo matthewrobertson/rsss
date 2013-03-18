@@ -1,0 +1,7 @@
+<ul>
+  <% @stories.each do |s| %>
+  <li>
+    <%= link_to s.link.title, s.link.url %>
+  </li>
+  <% end -%>
+</ul>
