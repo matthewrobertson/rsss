@@ -1,5 +1,4 @@
 class Link < ActiveRecord::Base
-  attr_accessible :title, :url, :content_type, :host
 
   has_many :stories, :dependent => :destroy
 

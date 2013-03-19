@@ -2,21 +2,25 @@ class LinksController < ApplicationController
 
   respond_to :json, :xml, :html
 
+  skip_before_filter :verify_authenticity_token
+
   before_filter :add_cors_headers
   before_filter :ensure_user
+
 
   # GET /links(.:format)
   def index
     TwitterFeedScraper.new(current_user).call
     Link.process
-    @stories = current_user.stories.includes(:link)
+    @stories = current_user.stories.unread.includes(:link)
     respond_with @stories
   end
 
   # POST /links(.:format)
   def batch
     @stories = current_user.stories
-    respond_with @stories
+    @stories.update_all(story_params)
+    respond_with @stories, :location => links_url
   end
 
   # GET /links/:id(.:format)
@@ -28,7 +32,8 @@ class LinksController < ApplicationController
   # POST /links/:id(.:format)
   def update
     @story = current_user.stories.find(params[:id])
-    respond_with @story
+    @story.update_attributes!(story_params)
+    respond_with @story, :location => link_url(:id => @story)
   end
 
   # OPTIONS /links/*
@@ -48,6 +53,10 @@ class LinksController < ApplicationController
       headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
       headers['Access-Control-Allow-Credentials'] = 'true'
       headers['Access-Control-Max-Age'] = '1728000'
+    end
+
+    def story_params
+      params.permit(:is_read)
     end
 
 end

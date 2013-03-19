@@ -1,8 +1,11 @@
 class Story < ActiveRecord::Base
-  attr_accessible :link_id, :user_id
+  include ActiveModel::ForbiddenAttributesProtection
 
   belongs_to :link
   belongs_to :story
+
+  default_scope order('created_at desc')
+  scope :unread, where(:is_read => false)
 
   def as_json(options = {})
     story_json = super options

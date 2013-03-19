@@ -24,6 +24,7 @@ gem 'twitter'
 gem 'wombat'
 gem 'omniauth-twitter'
 gem 'thin'
+gem 'strong_parameters'
 
 group :development, :test do
   gem 'sqlite3'
