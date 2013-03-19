@@ -16,3 +16,5 @@
 
 # Ignore the secret api_keys initializer
 /config/initializers/api_keys.rb
+# Ignore application configuration
+/config/application.yml
