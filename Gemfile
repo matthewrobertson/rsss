@@ -29,7 +29,13 @@ gem 'strong_parameters'
 group :development, :test do
   gem 'sqlite3'
   gem 'debugger'
+  gem 'rspec'
   gem 'rspec-rails'
+end
+
+group 'test' do
+  gem 'vcr'
+  gem 'webmock', '~> 1.8.0'
 end
 
 # To use ActiveModel has_secure_password

@@ -7,7 +7,7 @@ class Link < ActiveRecord::Base
   def self.process
     unprocessed.find_each do |link|
       begin
-        page_crawler = PageCrawler.new(link.url)
+        page_crawler = Scraper.scrape_page(link.url)
         link.update_attributes({
           :title => page_crawler.best_title,
           :content_type => page_crawler.content_type,

@@ -1,0 +1,173 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://smus.com/really-simple-social-syndication/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Mechanize/2.5.1 Ruby/1.9.3p327 (http://github.com/tenderlove/mechanize/)
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - smus.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - kMoPZp/7VnDsE3vCtV3EJE7LhRK4d4fJjTfSi7PrkPSwRGdL7T9OGjEJg0vfa66T
+      X-Amz-Request-Id:
+      - 9BEAE983E905058C
+      Date:
+      - Wed, 20 Mar 2013 07:19:31 GMT
+      Last-Modified:
+      - Mon, 18 Mar 2013 16:10:49 GMT
+      Etag:
+      - ! '"0ae62b09581e5af7d88261f3a6ae451b"'
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '9669'
+      Server:
+      - AmazonS3
+    body:
+      encoding: US-ASCII
+      string: ! "<!doctype html>\n<head>\n  <title>Really Simple Social Syndication
+        | Boris Smus</title>\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\"
+        content=\"IE=edge,chrome=1\">\n  <meta name=\"viewport\" content=\"width=device-width\">\n
+        \ <meta name=\"description\" content=\"I've been thinking about this for a
+        while, but the recent [sunset\nannouncement of Google Reader][sunset] made
+        me revisit this topic.\">\n\n  <!-- Icons -->\n  <link rel=\"icon\" type=\"image/x-icon\"
+        href=\"/static/icons/favicon.ico\" />\n  <link rel=\"apple-touch-icon\" href=\"/static/icons/apple-touch-icon.png\">\n\n
+        \ <!-- Styles -->\n  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700|PT+Sans|Inconsolata'
+        rel='stylesheet' type='text/css'>\n  <link rel=\"stylesheet\" href=\"/static/stylesheets/screen.css\"
+        type=\"text/css\" media=\"screen\" charset=\"utf-8\">\n\n  <!-- Feed -->\n
+        \ <link href=\"http://feeds.feedburner.com/smuscom\" rel=\"alternate\" title=\"Boris
+        Smus\" type=\"application/atom+xml\"/>\n</head>\n<body>\n  <header>\n    <span
+        class=\"left\">\n      <a href=\"/\" class=\"name\">Boris Smus</a>\n    </span>\n
+        \   <span class=\"right\">\n      <a href=\"/archive/posts/\">Archives</a>\n
+        \     <a href=\"/about/\">About</a>\n      <a href=\"http://twitter.com/borismus\">Twitter</a>\n
+        \   </span>\n  </header>\n\n  <div id=\"main\">\n    <section id=\"articles\">\n
+        \     \n<article>\n  <h1><a href=\"/really-simple-social-syndication\">Really
+        Simple Social Syndication</a></h1>\n  <div class=\"subtitle\">\n  \n  <time>Published
+        on 14 March 2013</time>\n  \n  \n  </div>\n  <p>\n    <p>I've been thinking
+        about this for a while, but the recent <a href=\"http://googlereader.blogspot.ca/2013/03/powering-down-google-reader.html\">sunset\nannouncement
+        of Google Reader</a> made me revisit this topic.\nGoogle Reader isn't the
+        only thing that's dead. RSS (aka. Really Simple\nSyndication) has long been
+        proclaimed dead as well. In fact most people\nnever even knew what RSS was.
+        That said, it was a very useful tool for\nme and many others that like to
+        stay up-to-date in their areas of\ninterest. Increasingly, I've been getting
+        my dose of news through social\nnetworks. However, social networks contain
+        a lot of noise that I care\nlittle for. I want to rebuild the RSS spirit using
+        modern social\nnetworks. This post describes one possible approach, which
+        I refer to as\n<strong>Really Simple Social Syndication (RSSS)</strong>.</p>\n\n<!--more-->\n\n<h2>Really
+        simple syndication: the good old days</h2>\n\n<p>Here's what the content flow
+        used to be with blogs and RSS:</p>\n\n<p><img src=\"rss-flow.png\" alt=\"RSS-based
+        content syndication\" /></p>\n\n<p>It was simple. Really simple, actually!</p>\n\n<h2>Social
+        syndication: today</h2>\n\n<p>I don't care much for social networks. I mostly
+        see them as a two-way\nutility for ultimately connecting content creators
+        to content consumers.</p>\n\n<p>One way, social networks like Facebook, Twitter,
+        G+, etc are just\nvehicles for finding out what to read based on your interests.
+        I spend\ntoo much time checking them individually for my news, and this is\nunfortunate.
+        </p>\n\n<p>The other way, social networks make it easier to have your content
+        read\nby a bunch of the right people. In my case, the vast majority of\nnon-organic
+        search traffic comes from social sources (mostly twitter). I\nwaste a bit
+        of time tweeting, and G+ing new posts on my blog as they\ncome out, but sometimes
+        they are picked up by others and I don't\nactually need to do that.</p>\n\n<p>As
+        long as the content itself stays outside of the walled gardens of the\nsocial
+        networks, I think we can come to a syndication solution that\nmight rival
+        the old RSS-based one, but enjoy the benefits of having some\nextra signals
+        from all of the social network junk. Here's the model I'm\nthinking of:</p>\n\n<p><img
+        src=\"social-flow.png\" alt=\"Social-based content syndication\" /></p>\n\n<p>Now
+        for a little bit more about Pub and Sub.</p>\n\n<h2>Sub: Requirements for
+        consumption</h2>\n\n<ul>\n<li><p><strong>Reuse existing feeds</strong>. I
+        don't want to re-create my sources. Use\nexisting people you follow on Twitter,
+        from G+ circles, Facebook\nfriends.</p></li>\n<li><p><strong>De-duplicated
+        content</strong>. Some people post the same link on multiple\nnetworks. Some
+        popular posts are reshared by everyone. I only want to\nsee a post once.</p></li>\n<li><p><strong>Content
+        centric</strong>. Show me the content in some standard, readable\nway. Hide
+        the social stuff unless I explicitly ask. Most of the time I\ndon't care where
+        it came from, don't care how many people liked it, or\nwhat they wrote in
+        the comments. Sometimes I'm curious and want a way\nto trace it back.</p></li>\n<li><p><strong>Social
+        signals as a metric</strong>. If many of my sources share something,\nI probably
+        should at least take a skim.</p></li>\n<li><p><strong>Web based service</strong>
+        so that I can use it anywhere.</p></li>\n<li><p>Set a <strong>volume-based
+        daily quota</strong>. If I'm busy today I'd like to only\nsee the top N articles,
+        sorted by some transparent metric of my\nchoosing.</p></li>\n</ul>\n\n<p>Flipboard,
+        Pulse, Feedly all sort of fit into this class of readers.\nIdeally this would
+        be an API that just lets me connect a few social\naccounts, and get back a
+        filtered feed of content. This could be the API\nfor the product - a Really
+        Simple Social Syndication (RSSS) feed.</p>\n\n<p>Anyone could then build a
+        UI on top of it for their favorite platform\n(Google Reader-like).</p>\n\n<h2>Pub:
+        Requirements for content production</h2>\n\n<ul>\n<li><p>Automatically post
+        content to a bunch of social services. </p></li>\n<li><p>Intelligent shortening
+        of links and content (eg. for twitter, to fit\nin 140 chars).</p></li>\n</ul>\n\n<p>Wordpress
+        plugins, Tumblr and others provide ways to automatically tweet\nand otherwise
+        post new updates to your content. There needs to be some\nother way that works
+        in general for any type of content. Such a service\ncould be similar to feedburner,
+        in that it would take an existing RSS\nfeed and socialize it.</p>\n\n<h2>Social
+        networks, let's be friends!</h2>\n\n<p>I'm not religious about Google Reader
+        or RSS. It was a good solution for\ncontent syndication at the time, but I'm
+        ready to accept that perhaps\nit's time to move on. Hopefully with tools like
+        the above, we can have\nsomething that comes close to the utility of RSS feeds.</p>\n\n<p>Social
+        networks could do some evil stuff which would preclude RSSS from\nhappening.
+        Economically, they are incentivized own content, create\nwalled gardens, insert
+        advertisements, and prevent access to their\nfeeds. I'm hoping that some human
+        element will prevent that from\nhappening.</p>\n\n<p>Here is a short list
+        of what we need from the social networks:</p>\n\n<ul>\n<li><p>The content
+        itself must be free from walled gardens (eg. paywalls,\nlogin walls, etc)</p></li>\n<li><p>Social
+        network feeds are available to read in full, as is, without\nmagical suggestions,
+        collaborative filtering, etc.</p></li>\n<li><p>Social networks provide some
+        programmatic way to post content.</p></li>\n</ul>\n\n<p>Once we have a good
+        flow for the production and consumption of content,\nusing social networks
+        as a delivery mechanism, I will be very happy to\nminimize the amount of time
+        spent on social networks directly, and focus\non consuming and producing interesting
+        things. Also, happy &pi; day!</p>\n\n  </p>\n\n  <div id=\"disqus_thread\"></div>\n
+        \ <script type=\"text/javascript\">\n      /* * * CONFIGURATION VARIABLES:
+        EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\n      var disqus_shortname =
+        'smus'; // Required - Replace example with your forum shortname\n\n      /*
+        * * DON'T EDIT BELOW THIS LINE * * */\n      (function() {\n          var
+        dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async
+        = true;\n          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';\n
+        \         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n
+        \     })();\n  </script>\n  <noscript>Please enable JavaScript to view the
+        <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>\n
+        \ <a href=\"http://disqus.com\" class=\"dsq-brlink\">blog comments powered
+        by <span class=\"logo-disqus\">Disqus</span></a>\n\n  <a href=\"/\" class=\"back\">&#8617;</a>\n</article>\n\n
+        \   </section>\n    <aside>\n      <img src=\"/static/images/me.jpg\" alt=\"Headshot
+        of Author\" title=\"Headshot of Author\">\n      <p>\n        I'm Boris Smus,
+        a software engineer and UI prototyper from\n        Vancouver, Canada. I recently
+        moved to San Francisco to work on\n        Chrome related things.\n        <a
+        href=\"/about/\" class=\"readmore\">&rarr;</a>\n      </p>\n    </aside>\n
+        \ </div>\n\n  <div id=\"push\"></div>\n\n  <footer>\n    <p>\n      &copy;
+        2008 - 2013 Boris Smus<br>\n      Powered by <a href=\"/site/\">Lightning</a>\n
+        \   </p>\n\n    <a href=\"http://feeds.feedburner.com/smuscom\" class=\"social
+        rss\" title=\"RSS\" rel=\"external me\">RSS</a>\n    <a href=\"http://github.com/borismus\"
+        class=\"social github\" title=\"GitHub\" rel=\"external me\">GitHub</a>\n
+        \   <a href=\"http://profiles.google.com/boris.smus\" rel=\"author\" class=\"social
+        plus\" title=\"Google Plus\" rel=\"external me\">Google Plus</a>\n    <a href=\"http://twitter.com/borismus\"
+        class=\"social twitter\" title=\"Twitter\" rel=\"external me\">Twitter</a>\n
+        \ </footer>\n\n\n  <script src=\"/static/javascripts/highlight.pack.js\"></script>\n
+        \ <script>\n    // Google Analytics\n    var _gaq=[[\"_setAccount\",\"UA-17930798-22\"],[\"_trackPageview\"]];\n
+        \   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;\n
+        \     g.src=(\"https:\"==location.protocol?\"//ssl\":\"//www\")+\".google-analytics.com/ga.js\";\n
+        \     s.parentNode.insertBefore(g,s)}(document,\"script\"));\n\n    // Syntax
+        highlighting for code.\n    hljs.tabReplace = '  ';\n    hljs.initHighlightingOnLoad();\n
+        \ </script>\n</body>"
+    http_version: 
+  recorded_at: Wed, 20 Mar 2013 07:19:29 GMT
+recorded_with: VCR 2.4.0
