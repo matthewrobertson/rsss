@@ -2,6 +2,8 @@
 
 A public service that aggregates multiple social network feeds into one.
 
+[![Code Climate](https://codeclimate.com/github/matthewrobertson/rsss.png)](https://codeclimate.com/github/matthewrobertson/rsss)
+
 ## Setting Up For Development
 
 This guide assumes some familiarity with Rails. If you would like some more basic
